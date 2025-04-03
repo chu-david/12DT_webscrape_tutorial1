@@ -1,12 +1,25 @@
+const puppeteer = require("puppeteer");
+const cheerio = require('cheerio');
+const fs = require('fs');
+const j2csv = require("json2csv").Parser;
+
+const { exec } = require("node:child_process")
+
+multipageScraping();
+
+let fullArray = [];
+
 async function multipageScraping() {
 
     // find path to chromium
-    const { stdout: chromiumPath } = await promisify(exec)("which chromium")
+    
+    //const { stdout: chromiumPath } = await promisify(exec)("which chromium")
   
     const browser = await puppeteer.launch({
       headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
-      executablePath: chromiumPath.trim()
+      //executablePath: chromiumPath.trim()
+      executablePath: await puppeteer.executablePath()
     });
   
     let page=1;
