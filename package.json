@@ -2,8 +2,12 @@
   "dependencies": {
     "axios": "^1.8.1",
     "cheerio": "^1.0.0",
+    "exec": "^0.2.1",
     "fs": "^0.0.1-security",
+    "jquery": "^3.7.1",
     "json2csv": "^6.0.0-alpha.2",
+    "pivottable": "^2.23.0",
+    "promisify": "^0.0.3",
     "puppeteer": "^24.3.0"
   }
 }

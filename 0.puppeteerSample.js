@@ -10,7 +10,7 @@ const puppeteer = require('puppeteer');
   });
 
   const page = await browser.newPage();
-  await page.goto('https://www.officeworks.com.au');
+  await page.goto('https://074.drakes.com.au/category/dairy');
   console.log(await page.title());
   await browser.close();
 })();

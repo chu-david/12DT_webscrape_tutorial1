@@ -34,10 +34,11 @@ async function multipageScraping() {
         await new Promise(res => setTimeout(res, 500))
   
         const pageContent = await webPage.content();
+
         const $ = cheerio.load(pageContent);
   
         //cheerio stuff here
-        console.log($('.styles__ProductInfoWrapper-sc-1k8cpym-3 a').eq(0).text());
+        console.log($('.styles__ProductInfoWrapper-sc-1k8cpym-3 .a').eq(0).text());
   
           //error checking for pages that keep going
           let card = ".styles__ProductInfoWrapper-sc-1k8cpym-3";
@@ -54,8 +55,9 @@ async function multipageScraping() {
               let item = $(product);
   
               const name = item.find("a").text();
+              const price = item.find(".ProductPrice__Wrapper-sc-1ye3dgu-0").text();
   
-              return {name:name};
+              return {name:name,price:price};
             })
             .toArray();
   
@@ -64,6 +66,8 @@ async function multipageScraping() {
           console.log(fullArray);
           page++;
           console.log(page);
+
+
         
       }catch(error) {
         console.error(error.message);
